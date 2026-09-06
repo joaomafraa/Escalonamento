@@ -100,4 +100,12 @@ Periodo: 20
 Deadline: 12
 Erro: tempo total deve ser um numero inteiro.
 Burst: 8[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ clear[K[K[K[K[K./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o scheduler
-[?2004l[?20
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o scheduler[20P./scheduler rate a.txt
+[?2004lNome: ATT
+Periodo: 20
+Deadline: 12
+Erro: tempo total deve ser um numero inteiro.
+Burst: 8[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ ./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o scheduler[20P./scheduler rate a.txt
+[?2004lTempo total: 100
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m
