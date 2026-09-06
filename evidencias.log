@@ -42,3 +42,62 @@ Try: sudo apt install <deb name>
 exit
 
 Script done on 2026-09-06 02:46:06-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-06 15:37:10-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="176" LINES="13"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ script -a evidencias.log[8Pcd escalonamento./scheduler rate a.txt[Kgcc -Wall -Wextra scheduler.c -o scheduler[21P./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o schedulerdate[Kwhoami[3Ppwd./scheduler erd aa aa[Kpwd[Kwhoami
+[?2004ljoao
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ whoamiscript -a evidencias.log[8Pcd escalonamento./scheduler rate a.txt[Kgcc -Wall -Wextra scheduler.c -o scheduler[21P./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o schedulerdate[Kwhoami[2Pdate
+[?2004lSun Sep  6 15:37:25 -03 2026
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ pwd
+[?2004l/mnt/c/SO/Escalonamento
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ pwddatewhoamiscript -a evidencias.log[8Pcd escalonamento./scheduler rate a.txt[Kgcc -Wall -Wextra scheduler.c -o scheduler[21P./scheduler rate a.txgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[01m[Kscheduler.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kscheduler.c:139:21:[m[K [01;35m[Kwarning: [m[Kpassing argument 2 of ‘[01m[Kler_arq[m[K’ from incompatible pointer type [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wincompatible-pointer-types-Wincompatible-pointer-types]8;;[m[K]
+  139 |     ler_arq(argv[2],[01;35m[K&tempo[m[K);
+      |                     [01;35m[K^~~~~~[m[K
+      |                     [01;35m[K|[m[K
+      |                     [01;35m[Kint **[m[K
+[01m[Kscheduler.c:29:29:[m[K [01;36m[Knote: [m[Kexpected ‘[01m[Kint *[m[K’ but argument is of type ‘[01m[Kint **[m[K’
+   29 | int ler_arq(char *nome,[01;36m[Kint *tempo_total[m[K){
+      |                        [01;36m[K~~~~~^~~~~~~~~~~[m[K
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[01m[Kscheduler.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kscheduler.c:139:5:[m[K [01;35m[Kwarning: [m[K‘[01m[Ktempo[m[K’ may be used uninitialized [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmaybe-uninitialized-Wmaybe-uninitialized]8;;[m[K]
+  139 |     [01;35m[Kler_arq(argv[2],tempo)[m[K;
+      |     [01;35m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kscheduler.c:137:10:[m[K [01;36m[Knote: [m[K‘[01m[Ktempo[m[K’ was declared here
+  137 |     int *[01;36m[Ktempo[m[K;
+      |          [01;36m[K^~~~~[m[K
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o schedulerpwd[Kdatewhoamiscript -a evidencias.log[8Pcd escalonamento./scheduler rate a.txt[6Pcd escalonamento./scheduler rate a.txt[Kgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[01m[Kscheduler.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kscheduler.c:137:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktempo[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  137 |     int [01;35m[Ktempo[m[K;
+      |         [01;35m[K^~~~~[m[K
+[01m[Kscheduler.c:127:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  127 | int main([01;35m[Kint argc[m[K, char*argv[]){
+      |          [01;35m[K~~~~^~~~[m[K
+[01m[Kscheduler.c:127:25:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  127 | int main(int argc, [01;35m[Kchar*argv[][m[K){
+      |                    [01;35m[K~~~~~^~~~~~[m[K
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o schedulerpwd[Kdate[1Ppwdgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o schedulerpwd[Kdatewhoamiscript -a evidencias.log[8Pcd escalonamento./scheduler rate a.txt[Kt
+[?2004lErro: numero invalido.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ ./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o scheduler[20P./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o schedulerpwd[Kdatewhoamiscript -a evidencias.log[8Pcd escalonamento./scheduler rate a.txt[Kgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o scheduler[20P./scheduler rate a.txt
+[?2004lErro: esperado NOME PERIODO DEADLINE BURST.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ ./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o scheduler[20P./scheduler rate a.txt
+[?2004lErro: esperado NOME PERIODO DEADLINE BURST.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ ./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[01m[Kscheduler.c:[m[K In function ‘[01m[Kler_tarefa[m[K’:
+[01m[Kscheduler.c:91:32:[m[K [01;31m[Kerror: [m[Klvalue required as left operand of assignment
+   91 |     if(quantidade != 4 || parte[01;31m[K=[m[K!NULL){
+      |                                [01;31m[K^[m[K
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o scheduler[20P./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o scheduler[20P./scheduler rate a.txt
+[?2004lNome: ATT
+Periodo: 20
+Deadline: 12
+Erro: tempo total deve ser um numero inteiro.
+Burst: 8[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Escalonamento[00m$ clear[K[K[K[K[K./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[?20
