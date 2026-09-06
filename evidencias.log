@@ -14,4 +14,31 @@ Try: sudo apt install <deb name>
 [?2004lErro: argumentos insuficientes
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler erd
 [?2004lErro: argumentos insuficientes
-[?2004h]0;joao@LaptopJoaoM: /mnt/
+[?2004h]0;joao@LaptopJoaoM: /mnt/Script started on 2026-09-05 23:24:49-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="105" LINES="13"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler erd aa aa[K[Kgcc -Wall -Wextra scheduler.c -o schedulerpwd[K
+[?2004l/mnt/c/SO/escalonamento
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ pwd./scheduler erd aa aa[K[Kgcc -Wall -Wextra scheduler.c -o schedulerpwd[Kwhoamihami[1Pami
+[?2004ljoao
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ whoami[3Ppwd./scheduler erd aa aa[K[Kgcc -Wall -Wextra scheduler.c -o schedulerpwd[Kwhoamihami[3Pdate
+[?2004lSat Sep  5 23:25:01 -03 2026
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ datewhoami[3Ppwd./scheduler erd aa aa[K[Kgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o schedulerdate[Kwhoami[3Ppwd./scheduler erd aa [K[K[K[K[K[K[Ker[K[Krate a.txt
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler rate a.txt[K
+[?2004lErro: ao abrir arquivo de entrada
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler rate a.txtgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ gcc -Wall -Wextra scheduler.c -o scheduler[21P./scheduler rate a.tx
+[?2004lErro: ao abrir arquivo de entrada
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler rate a.tx[K./scheduler rate a.txt
+[?2004lErro: tempo total deve ser um numero inteiro.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler rate a.txt
+[?2004lErro: tempo total deve estar entre 1 e 2147483647.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ [7m12.5[27m[1P12.[K[K[K./scheduler rate a.txt
+[?2004lErro: conteudo extra depois do tempo total.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler rate a.txt
+[?2004lErro: tempo total deve estar entre 1 e 2147483647.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler rate a.txt
+[?2004lErro: tempo total deve ser um numero inteiro.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ok[K[K[?2004l
+exit
+
+Script done on 2026-09-06 02:46:06-03:00 [COMMAND_EXIT_CODE="0"]
