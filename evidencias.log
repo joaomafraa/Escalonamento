@@ -1,0 +1,17 @@
+Script started on 2026-09-05 22:59:02-03:00 [TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="105" LINES="13"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ date
+[?2004lSat Sep  5 22:59:07 -03 2026
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ whohami
+[?2004lCommand 'whohami' not found, did you mean:
+  command 'whoami' from deb coreutils (9.4-3ubuntu6.2)
+Try: sudo apt install <deb name>
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ whoami
+[?2004ljoao
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ pwd
+[?2004l/mnt/c/SO/escalonamento
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ [7mgcc -Wall -Wextra scheduler.c -o scheduler[27mgcc -Wall -Wextra scheduler.c -o scheduler
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./ sch[K[K[K[Kscheduler
+[?2004lErro: argumentos insuficientes
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler erd
+[?2004lErro: argumentos insuficientes
+[?2004h]0;joao@LaptopJoaoM: /mnt/
