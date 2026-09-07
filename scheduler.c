@@ -81,7 +81,7 @@ int adicionar_tarefas(lista_tarefas *lista,tarefas tarefa){
         fprintf(stderr,"Erro: quantidade de tarefas muito grande.\n");
         return 0;
     }
-    tarefas* novo=realloc(lista->itens,lista->quantidade+1 * sizeof(tarefas));
+    tarefas* novo=realloc(lista->itens,(lista->quantidade+1) * sizeof(tarefas));
     if (novo==NULL){
         fprintf(stderr,"Erro: memoria insuficiente.\n");
         return 0;
@@ -91,7 +91,7 @@ int adicionar_tarefas(lista_tarefas *lista,tarefas tarefa){
     lista->quantidade=lista->quantidade+1;
     return 1;
 }
-int ler_arq(char *nome,int *tempo_total){
+int ler_arq(char *nome,int *tempo_total,lista_tarefas *lista){
     FILE * arq;
     arq = fopen(nome,"r");
     if(arq == NULL){
@@ -159,6 +159,10 @@ int ler_arq(char *nome,int *tempo_total){
             fclose(arq);
             return 0;
         }
+        if(adicionar_tarefas(lista, tarefa) == 0){
+        fclose(arq);
+        return 0;
+}
     }
 
     if(ferror(arq)){
@@ -180,9 +184,13 @@ int main(int argc, char*argv[]){
         return 1;
     }
 
-    if(ler_arq(argv[2], &tempo)==0){
+    if(ler_arq(argv[2], &tempo,&lista)==0){
         return 1;
     }
+    for (size_t i=0; i<lista.quantidade;i++) {
+        printf("%s %d %d %d\n",lista.itens[i].nome,lista.itens[i].periodo,lista.itens[i].deadline,lista.itens[i].burst);
+    }
+    free(lista.itens);
     printf("Tempo total: %d\n", tempo);
     return 0;
 }
