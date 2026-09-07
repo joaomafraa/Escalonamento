@@ -174,6 +174,21 @@ int ler_arq(char *nome,int *tempo_total,lista_tarefas *lista){
     return 1;
 }
 
+void liberar_tarefas(lista_tarefas *lista,int tempo){
+    //percorre todas as tarefas do vetor
+    for(size_t i=0;i<lista->quantidade;i++){
+        //aponta para a tarefa numero i
+        tarefas *tarefa=&lista->itens[i];
+        //se o resto for zero eh um instate
+        if(tempo%tarefa->periodo==0){
+            //uma nova rodada começa com todo trabalho a fazer
+            tarefa->restante=tarefa->burst;
+            //calcula o instate para terminar a rodada
+            tarefa->prazo=(long long)tempo+tarefa->deadline;
+        }
+    }
+}
+
 int main(int argc, char*argv[]){
     int tempo;
     lista_tarefas lista;
@@ -190,6 +205,9 @@ int main(int argc, char*argv[]){
     for (size_t i=0; i<lista.quantidade;i++) {
         printf("%s %d %d %d\n",lista.itens[i].nome,lista.itens[i].periodo,lista.itens[i].deadline,lista.itens[i].burst);
     }
+    liberar_tarefas(&lista, 0);
+    for (size_t i = 0; i < lista.quantidade; i++) {
+    printf("%s: restante=%d, prazo=%lld\n",lista.itens[i].nome,lista.itens[i].restante,lista.itens[i].prazo);}
     free(lista.itens);
     printf("Tempo total: %d\n", tempo);
     return 0;
