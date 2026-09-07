@@ -13,6 +13,10 @@ typedef struct tarefas{
     int restante;
     long long prazo;
 }tarefas;
+typedef struct lista_tarefas{
+    tarefas *itens;
+    size_t quantidade;
+}lista_tarefas;
 
 int validar_args(int argc,char*argv[]){
     if(argc !=3){
@@ -72,6 +76,21 @@ int ler_tarefa(char *linha, tarefas *tarefa){
     return 1;
 }
 
+int adicionar_tarefas(lista_tarefas *lista,tarefas tarefa){
+    if(lista->quantidade>=(size_t)-1/sizeof(tarefas)){
+        fprintf(stderr,"Erro: quantidade de tarefas muito grande.\n");
+        return 0;
+    }
+    tarefas* novo=realloc(lista->itens,lista->quantidade+1 * sizeof(tarefas));
+    if (novo==NULL){
+        fprintf(stderr,"Erro: memoria insuficiente.\n");
+        return 0;
+    }
+    lista->itens=novo;
+    lista->itens[lista->quantidade]=tarefa;
+    lista->quantidade=lista->quantidade+1;
+    return 1;
+}
 int ler_arq(char *nome,int *tempo_total){
     FILE * arq;
     arq = fopen(nome,"r");
@@ -153,6 +172,9 @@ int ler_arq(char *nome,int *tempo_total){
 
 int main(int argc, char*argv[]){
     int tempo;
+    lista_tarefas lista;
+    lista.itens = NULL;
+    lista.quantidade=0;
 
     if(validar_args(argc, argv)==0){
         return 1;
