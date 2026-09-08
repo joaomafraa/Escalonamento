@@ -10,6 +10,8 @@ typedef struct tarefas{
     int deadline;
     int burst;
     int perdidas;
+    int completas;
+    int killed;
 
     int restante;
     long long prazo;
@@ -75,6 +77,8 @@ int ler_tarefa(char *linha, tarefas *tarefa){
     tarefa->restante=0;
     tarefa->prazo=0;
     tarefa->perdidas=0;
+    tarefa->completas=0;
+    tarefa->killed=0;
     return 1;
 }
 
@@ -228,41 +232,46 @@ void verificar_deadlines(lista_tarefas *lista, int tempo){
         }
     }
 }
+void simular_rate(lista_tarefas *lista,int tempo_total){
+    for(int tempo =0;tempo<tempo_total;tempo++){
+        //descartamos primeiro rodadas que perderam o prazo
+        verificar_deadlines(lista,tempo);
+        //preparacao de novas rodadas
+        liberar_tarefas(lista,tempo);
+        //escolher a nova tarefa pelo rate
+        tarefas *escolhida=escolher_rate(lista);
+        //executa uma unidade e se der bom incrementa mais 1 
+        if (executar_unidade(escolhida)){
+            escolhida->completas++;
+        }
+    }
+        //trata as deadlines no instante final pr dps contar as pendencias como killed
+    verificar_deadlines(lista, tempo_total);
+    for(size_t i=0;i<lista->quantidade;i++){
+        if(lista->itens[i].restante > 0){
+            lista->itens[i].killed++;
+            lista->itens[i].restante = 0;
+        }
+    }
+    
+}
 
-int main(int argc, char*argv[]){
+int main(int argc, char *argv[]) {
     int tempo;
-    lista_tarefas lista;
-    lista.itens = NULL;
-    lista.quantidade=0;
+    lista_tarefas lista = {NULL, 0};
 
     if(validar_args(argc, argv)==0){
         return 1;
     }
 
-    if(ler_arq(argv[2], &tempo,&lista)==0){
-        free(lista.itens); 
+    if(ler_arq(argv[2], &tempo, &lista)==0){
+        free(lista.itens);
         return 1;
     }
-    for (size_t i=0; i<lista.quantidade;i++) {
-        printf("%s %d %d %d\n",lista.itens[i].nome,lista.itens[i].periodo,lista.itens[i].deadline,lista.itens[i].burst);
+    simular_rate(&lista, tempo);
+    for(size_t i=0;i<lista.quantidade;i++){
+        printf("%s: completas=%d, perdidas=%d, killed=%d\n",lista.itens[i].nome,lista.itens[i].completas,lista.itens[i].perdidas,lista.itens[i].killed);
     }
-    liberar_tarefas(&lista, 0);
-    verificar_deadlines(&lista,12);
-    for (size_t i = 0; i < lista.quantidade; i++) {
-    printf("%s: restante=%d,perdidas=%d, prazo=%lld\n",lista.itens[i].nome,lista.itens[i].restante,lista.itens[i].perdidas,lista.itens[i].prazo);}
-    tarefas *escolhida = escolher_rate(&lista);
-
-    if(escolhida!=NULL) {
-        printf("Escolhida pelo RATE: %s\n",escolhida->nome);
-    }else{
-        printf("Nenhuma tarefa pronta.\n");
-    }
-    printf("antes %s, restante=%d\n",escolhida->nome, escolhida->restante);
-    int terminou=executar_unidade(escolhida);
-    
-    printf("depois: %s,restante=%d\n",escolhida->nome,escolhida->restante);
-    printf("terminou %d\n",terminou);
     free(lista.itens);
-    printf("Tempo total: %d\n", tempo);
     return 0;
 }

@@ -296,4 +296,43 @@ Tempo total: 100
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ^C[?2004l[?2004h[?2004l
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler rate a.txtmake[K
 [?2004lgcc -Wall -Wextra -std=c11 scheduler.c -o scheduler
-[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mj
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make./scheduler rate a.txt
+[?2004lATT 20 12 8
+NAV 50 30 15
+ATT: restante=0,perdidas=1, prazo=12
+NAV: restante=15,perdidas=0, prazo=30
+Escolhida pelo RATE: NAV
+antes NAV, restante=15
+depois: NAV,restante=14
+terminou 0
+Tempo total: 100
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ [?2004l
+exit
+
+Script done on 2026-09-07 23:22:58-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-08 17:35:06-03:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="163" LINES="18"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[Kwhoami[2Pdatewhoami
+[?2004ljoao
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ whoami./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[Kwhoami[2Pdate
+[?2004lTue Sep  8 17:35:16 -03 2026
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ datewhoami./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[K./scheduler rate a.txtmake[Kwhoami[2Pdate[1Ppwd
+[?2004l/mnt/c/SO/escalonamento
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ pwddatewhoami./scheduler rate a.txt
+[?2004lATT 20 12 8
+NAV 50 30 15
+ATT: restante=0,perdidas=1, prazo=12
+NAV: restante=15,perdidas=0, prazo=30
+Escolhida pelo RATE: NAV
+antes NAV, restante=15
+depois: NAV,restante=14
+terminou 0
+Tempo total: 100
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 scheduler.c -o scheduler
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make./scheduler rate a.txt
+[?2004lATT: completas=0, perdidas=100, killed=0
+NAV: completas=0, perdidas=100, killed=0
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 scheduler.c -o scheduler
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make./scheduler rate a.txtmake[K./scheduler rate a.txt
+[?2004l
