@@ -9,6 +9,7 @@ typedef struct tarefas{
     int periodo;
     int deadline;
     int burst;
+    int perdidas;
 
     int restante;
     long long prazo;
@@ -73,6 +74,7 @@ int ler_tarefa(char *linha, tarefas *tarefa){
     tarefa->burst=valores[2];
     tarefa->restante=0;
     tarefa->prazo=0;
+    tarefa->perdidas=0;
     return 1;
 }
 
@@ -216,6 +218,17 @@ int executar_unidade(tarefas *tarefa) {
     }else return 0;//se todas as tarefas terminarem retorna 1 senao 0
 }
 
+void verificar_deadlines(lista_tarefas *lista, int tempo){
+    for(size_t i=0;i<lista->quantidade;i++){
+        tarefas *tarefa=&lista->itens[i];
+        //se ainda falta trabalho e o prazo chegou perdeu
+        if(tarefa->restante>0 && tempo>=tarefa->prazo){
+            tarefa->restante = 0;//descarta o trabalho pendente
+            tarefa->perdidas++;//conta a perda dessa rodada
+        }
+    }
+}
+
 int main(int argc, char*argv[]){
     int tempo;
     lista_tarefas lista;
@@ -234,8 +247,9 @@ int main(int argc, char*argv[]){
         printf("%s %d %d %d\n",lista.itens[i].nome,lista.itens[i].periodo,lista.itens[i].deadline,lista.itens[i].burst);
     }
     liberar_tarefas(&lista, 0);
+    verificar_deadlines(&lista,12);
     for (size_t i = 0; i < lista.quantidade; i++) {
-    printf("%s: restante=%d, prazo=%lld\n",lista.itens[i].nome,lista.itens[i].restante,lista.itens[i].prazo);}
+    printf("%s: restante=%d,perdidas=%d, prazo=%lld\n",lista.itens[i].nome,lista.itens[i].restante,lista.itens[i].perdidas,lista.itens[i].prazo);}
     tarefas *escolhida = escolher_rate(&lista);
 
     if(escolhida!=NULL) {

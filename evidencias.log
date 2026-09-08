@@ -254,4 +254,46 @@ Tempo total: 100
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make./scheduler rate a.txt
 [?2004lATT 20 12 8
 NAV 50 30 15
-ATT: restante=8, 
+ATT: restante=8, prazo=12
+NAV: restante=15, prazo=30
+Escolhida pelo RATE: ATT
+antes ATT, restante=8
+depois: ATT,restante=7
+terminou 0
+Tempo total: 100
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 scheduler.c -o scheduler
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make./scheduler rate a.txt
+[?2004lATT 20 12 8
+NAV 50 30 15
+ATT: restante=0, prazo=12
+NAV: restante=15, prazo=30
+Escolhida pelo RATE: NAV
+antes NAV, restante=15
+depois: NAV,restante=14
+terminou 0
+Tempo total: 100
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 scheduler.c -o scheduler
+[01m[Kscheduler.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kscheduler.c:252:101:[m[K [01;31m[Kerror: [m[K‘[01m[Kitens[m[K’ undeclared (first use in this function)
+  252 |     printf("%s: restante=%d,perdidas=%d prazo=%lld\n",lista.itens[i].nome, lista.itens[i].perdidas, [01;31m[Kitens[m[K[i].restante,lista.itens[i].prazo);}
+      |                                                                                                     [01;31m[K^~~~~[m[K
+[01m[Kscheduler.c:252:101:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+make: *** [Makefile:5: scheduler] Error 1
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 scheduler.c -o scheduler
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make./scheduler rate a.txt
+[?2004lATT 20 12 8
+NAV 50 30 15
+ATT: restante=0,restante=1, prazo=12
+NAV: restante=15,restante=0, prazo=30
+Escolhida pelo RATE: NAV
+antes NAV, restante=15
+depois: NAV,restante=14
+terminou 0
+Tempo total: 100
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ^C[?2004l[?2004h[?2004l
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ ./scheduler rate a.txtmake[K
+[?2004lgcc -Wall -Wextra -std=c11 scheduler.c -o scheduler
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mj
