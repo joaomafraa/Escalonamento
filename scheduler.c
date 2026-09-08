@@ -232,14 +232,35 @@ void verificar_deadlines(lista_tarefas *lista, int tempo){
         }
     }
 }
-void simular_rate(lista_tarefas *lista,int tempo_total){
+tarefas *escolher_edf(lista_tarefas *lista){//mesma funcao somente usando agora a logica do prazo
+    tarefas *escolhida=NULL;
+
+    for (size_t i=0; i<lista->quantidade; i++){
+        tarefas *atual = &lista->itens[i];
+        //Considera somente quem tem trabalho restante
+        if (atual->restante>0){
+            //Escolhe a primeira pronta ou uma com periodo menor
+            if(escolhida==NULL || atual->prazo<escolhida->prazo){
+                escolhida=atual;
+            }
+        }
+    }
+    return escolhida;
+}
+void simular(lista_tarefas *lista,int tempo_total,char algoritimo[]){
     for(int tempo =0;tempo<tempo_total;tempo++){
         //descartamos primeiro rodadas que perderam o prazo
         verificar_deadlines(lista,tempo);
         //preparacao de novas rodadas
         liberar_tarefas(lista,tempo);
         //escolher a nova tarefa pelo rate
-        tarefas *escolhida=escolher_rate(lista);
+        tarefas *escolhida;
+
+    if(strcmp(algoritimo,"rate")==0){
+    escolhida=escolher_rate(lista);
+    }else{
+    escolhida=escolher_edf(lista);
+    }
         //executa uma unidade e se der bom incrementa mais 1 
         if (executar_unidade(escolhida)){
             escolhida->completas++;
@@ -268,7 +289,7 @@ int main(int argc, char *argv[]) {
         free(lista.itens);
         return 1;
     }
-    simular_rate(&lista, tempo);
+    simular(&lista, tempo,argv[1]);
     for(size_t i=0;i<lista.quantidade;i++){
         printf("%s: completas=%d, perdidas=%d, killed=%d\n",lista.itens[i].nome,lista.itens[i].completas,lista.itens[i].perdidas,lista.itens[i].killed);
     }
