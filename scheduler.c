@@ -203,6 +203,18 @@ tarefas *escolher_rate(lista_tarefas *lista){
     }
     return escolhida;
 }
+int executar_unidade(tarefas *tarefa) {
+    //Sem tarefa ou sem trabalho pendente não executa
+    if(tarefa==NULL || tarefa->restante<=0){
+        return 0;
+    }
+    //Executa uma unidade de trabalho
+    tarefa->restante--;
+    //Retorna 1 se a tarefa acabou de terminar
+    if(tarefa->restante == 0){
+        return 1;
+    }else return 0;//se todas as tarefas terminarem retorna 1 senao 0
+}
 
 int main(int argc, char*argv[]){
     int tempo;
@@ -231,6 +243,11 @@ int main(int argc, char*argv[]){
     }else{
         printf("Nenhuma tarefa pronta.\n");
     }
+    printf("antes %s, restante=%d\n",escolhida->nome, escolhida->restante);
+    int terminou=executar_unidade(escolhida);
+    
+    printf("depois: %s,restante=%d\n",escolhida->nome,escolhida->restante);
+    printf("terminou %d\n",terminou);
     free(lista.itens);
     printf("Tempo total: %d\n", tempo);
     return 0;
