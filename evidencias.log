@@ -195,3 +195,29 @@ Tempo total: 100
 exit
 
 Script done on 2026-09-07 01:03:06-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-07 21:29:41-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="177" LINES="18"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ script -a evidencias.log[8Pcd escalonamento./scheduler rate a.txtmake[K clean./scheduler rate a.txtmake[K[1Ppwd
+[?2004l/mnt/c/SO/escalonamento
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ pwdscript -a evidencias.log[8Pcd escalonamento./scheduler rate a.txtmake[K clean./scheduler rate a.txtmake[K[1Ppwddate
+[?2004lMon Sep  7 21:29:49 -03 2026
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ date[1Ppwdscript -a evidencias.log[8Pcd escalonamento./scheduler rate a.txtmake[K clean./scheduler rate a.txtmake[K[1Ppwddatewhoami
+[?2004ljoao
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 scheduler.c -o scheduler
+[01m[Kscheduler.c:[m[K In function ‘[01m[Kescolher_rate[m[K’:
+[01m[Kscheduler.c:199:25:[m[K [01;35m[Kwarning: [m[Kassignment to ‘[01m[Ktarefas *[m[K’ from ‘[01m[Kint[m[K’ makes pointer from integer without a cast [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wint-conversion-Wint-conversion]8;;[m[K]
+  199 |             if(escolhida[01;35m[K=[m[KNULL || atual->periodo<escolhida->periodo){
+      |                         [01;35m[K^[m[K
+[01m[Kscheduler.c:199:16:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around assignment used as truth value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+  199 |             if([01;35m[Kescolhida[m[K=NULL || atual->periodo<escolhida->periodo){
+      |                [01;35m[K^~~~~~~~~[m[K
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 scheduler.c -o scheduler
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$ makewhoami[2Pdate[1Ppwdscript -a evidencias.log[8Pcd escalonamento./scheduler rate a.txt
+[?2004lATT 20 12 8
+NAV 50 30 15
+ATT: restante=8, prazo=12
+NAV: restante=15, prazo=30
+Escolhida pelo RATE: ATT
+Tempo total: 100
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/escalonamento[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/escalonamento[00m$

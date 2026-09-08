@@ -188,6 +188,21 @@ void liberar_tarefas(lista_tarefas *lista,int tempo){
         }
     }
 }
+tarefas *escolher_rate(lista_tarefas *lista){
+    tarefas *escolhida=NULL;
+
+    for (size_t i=0; i<lista->quantidade; i++){
+        tarefas *atual = &lista->itens[i];
+        //Considera somente quem tem trabalho restante
+        if (atual->restante>0){
+            //Escolhe a primeira pronta ou uma com periodo menor
+            if(escolhida==NULL || atual->periodo<escolhida->periodo){
+                escolhida=atual;
+            }
+        }
+    }
+    return escolhida;
+}
 
 int main(int argc, char*argv[]){
     int tempo;
@@ -200,6 +215,7 @@ int main(int argc, char*argv[]){
     }
 
     if(ler_arq(argv[2], &tempo,&lista)==0){
+        free(lista.itens); 
         return 1;
     }
     for (size_t i=0; i<lista.quantidade;i++) {
@@ -208,6 +224,13 @@ int main(int argc, char*argv[]){
     liberar_tarefas(&lista, 0);
     for (size_t i = 0; i < lista.quantidade; i++) {
     printf("%s: restante=%d, prazo=%lld\n",lista.itens[i].nome,lista.itens[i].restante,lista.itens[i].prazo);}
+    tarefas *escolhida = escolher_rate(&lista);
+
+    if(escolhida!=NULL) {
+        printf("Escolhida pelo RATE: %s\n",escolhida->nome);
+    }else{
+        printf("Nenhuma tarefa pronta.\n");
+    }
     free(lista.itens);
     printf("Tempo total: %d\n", tempo);
     return 0;
