@@ -3,7 +3,7 @@
 #include <string.h>
 #include <limits.h>
 #include <errno.h>
-
+#define login "jcmsn"
 typedef struct tarefas{
     char nome[50];
     int periodo;
@@ -247,23 +247,83 @@ tarefas *escolher_edf(lista_tarefas *lista){//mesma funcao somente usando agora 
     }
     return escolhida;
 }
-void simular(lista_tarefas *lista,int tempo_total,char algoritimo[]){
+int escrever_trecho(FILE *saida, tarefas *tarefa,int duracao, char motivo){
+    //nn registra trechos vazio
+    if(duracao<=0){
+        return 1;
+    }
+    int resultado;
+    if(tarefa==NULL){
+        //sem tarefa CPU fica ociosa
+        resultado=fprintf(saida, "idle for %d units\n", duracao);
+    }else{
+        resultado=fprintf(saida, "[%s] for %d units - %c\n",tarefa->nome, duracao,motivo);
+    }
+    //fprintf retorna um valor negativo quando a escrita falha.
+    if(resultado<0){
+        fprintf(stderr, "Erro ao escrever o trecho.\n");
+        return 0;
+    }
+    return 1;
+}
+int simular(lista_tarefas *lista,int tempo_total,char algoritimo[],FILE* saida){
+    tarefas *anterior =NULL;
+    int duracao=0;
+    char *titulo;
+
+    if(strcmp(algoritimo, "rate") == 0){
+        titulo = "RATE";
+    }else{
+    titulo = "EDF";
+    }if(fprintf(saida, "EXECUTION BY %s\n\n", titulo)<0){
+        fprintf(stderr, "Erro ao escrever\n");
+        return 0;
+    }
     for(int tempo =0;tempo<tempo_total;tempo++){
+        if(anterior!=NULL && duracao>0 &&tempo >= anterior->prazo){
+            if (!escrever_trecho(saida, anterior, duracao, 'L')){
+                return 0;
+            }
+
+            anterior = NULL;
+            duracao = 0;
+        }
         //descartamos primeiro rodadas que perderam o prazo
         verificar_deadlines(lista,tempo);
         //preparacao de novas rodadas
         liberar_tarefas(lista,tempo);
         //escolher a nova tarefa pelo rate
         tarefas *escolhida;
-
-    if(strcmp(algoritimo,"rate")==0){
-    escolhida=escolher_rate(lista);
-    }else{
-    escolhida=escolher_edf(lista);
-    }
+        if(strcmp(algoritimo,"rate")==0){
+        escolhida=escolher_rate(lista);
+        }else{
+        escolhida=escolher_edf(lista);
+        }
+         if(escolhida!=anterior && duracao>0){
+            if (!escrever_trecho(saida, anterior, duracao, 'H')) {
+                return 0;
+            }
+            duracao = 0;
+        }
+        anterior = escolhida;
+        duracao++;
         //executa uma unidade e se der bom incrementa mais 1 
         if (executar_unidade(escolhida)){
             escolhida->completas++;
+            if(!escrever_trecho(saida, escolhida, duracao, 'F')){
+                return 0;
+            }
+            anterior = NULL;
+            duracao = 0;
+        }
+    }
+    if(duracao>0){
+        char motivo = 'K';
+        if (anterior!=NULL && tempo_total >= anterior->prazo){
+                motivo = 'L';
+        }
+        if(!escrever_trecho(saida,anterior,duracao,motivo)){
+        return 0;
         }
     }
         //trata as deadlines no instante final pr dps contar as pendencias como killed
@@ -274,12 +334,36 @@ void simular(lista_tarefas *lista,int tempo_total,char algoritimo[]){
             lista->itens[i].restante = 0;
         }
     }
-    
+    return 1;
+}
+int escrever_resumo(FILE *saida, lista_tarefas *lista) {
+    fprintf(saida, "\nLOST DEADLINES\n");
+
+    for (size_t i=0;i<lista->quantidade;i++) {
+        fprintf(saida, "[%s] %d\n",lista->itens[i].nome,lista->itens[i].perdidas);}
+
+    fprintf(saida,"\nCOMPLETE EXECUTION\n");
+
+    for (size_t i=0;i<lista->quantidade;i++){
+        fprintf(saida, "[%s] %d\n",lista->itens[i].nome,lista->itens[i].completas);}
+
+    fprintf(saida, "\nKILLED\n");
+
+    for (size_t i=0; i<lista->quantidade;i++){
+        fprintf(saida, "[%s] %d\n",lista->itens[i].nome,lista->itens[i].killed);
+    }
+    if(ferror(saida)){
+        fprintf(stderr, "Erro ao escrever o resumo.\n");
+        return 0;
+    }
+    return 1;
 }
 
 int main(int argc, char *argv[]) {
     int tempo;
-    lista_tarefas lista = {NULL, 0};
+    lista_tarefas lista;
+    lista.itens=NULL;
+    lista.quantidade=0;
 
     if(validar_args(argc, argv)==0){
         return 1;
@@ -289,10 +373,31 @@ int main(int argc, char *argv[]) {
         free(lista.itens);
         return 1;
     }
-    simular(&lista, tempo,argv[1]);
-    for(size_t i=0;i<lista.quantidade;i++){
-        printf("%s: completas=%d, perdidas=%d, killed=%d\n",lista.itens[i].nome,lista.itens[i].completas,lista.itens[i].perdidas,lista.itens[i].killed);
+    char* nome_saida;
+    if(strcmp(argv[1], "rate") == 0){
+        nome_saida = "rate_" login ".out";
+    }else{
+        nome_saida = "edf_" login ".out";
+    }
+    FILE * saida=fopen(nome_saida,"w");
+    if(saida == NULL){
+        perror("Erro ao criar arquivo de saida");
+        free(lista.itens);
+        return 1;
+    }
+    int sucesso =simular(&lista,tempo,argv[1],saida);
+    if(sucesso){
+        sucesso = escrever_resumo(saida, &lista);
+    }if(fclose(saida) == EOF){
+        perror("Erro ao fechar arquivo de saida");
+        sucesso = 0;
     }
     free(lista.itens);
+    if(!sucesso) {
+        if (remove(nome_saida)!=0) {
+            perror("Erro ao remover saida incompleta");
+        }
+        return 1;
+    }
     return 0;
 }
